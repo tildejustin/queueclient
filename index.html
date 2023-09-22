@@ -380,9 +380,9 @@
         }
         all_cats.sort((a, b) => ((a > b) - 0.5));
         all_cats.unshift("All Categories");
-        let cat_select = `<select name="category-select" id="category-select" class="${mode}">`;
+        let cat_select = `<select name="category-select" id="category-select" class="${mode}" multiple>`;
         for (let cat of all_cats)
-          cat_select += `<option value="${cat}">${cat}</option>`;
+          cat_select += `<option value="${cat}" ${cat === "All Categories" ? "selected=true" : ""}>${cat}</option>`;
         cat_select += `</select> <button onclick="edit_working_queue()" class="${mode}">Apply</button>`;
         document.getElementById("category-error").innerHTML = cat_select;
         edit_working_queue();
@@ -438,16 +438,16 @@
       }
 
       function edit_working_queue() {
-        selected = document.getElementById("category-select").value;
+        selected = Array.from(document.getElementById("category-select").querySelectorAll("option:checked"), el => el.value);
         let title;
-        if (selected == "All Categories") {
+        if (selected.includes("All Categories")) {
           working_queue = [...Array(queue.length).keys()];
           title = `<b>${gameName}\n${working_queue.length} run${(working_queue.length != 1) ? "s" : ""}`;
         } else {
           working_queue = [];
           let i = 0;
           for (let run of queue) {
-            if (full_category(run) == selected)
+            if (selected.includes(full_category(run)))
               working_queue.push(i);
             i++;
           }
