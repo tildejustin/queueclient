@@ -380,10 +380,10 @@
         }
         all_cats.sort((a, b) => ((a > b) - 0.5));
         all_cats.unshift("All Categories");
-        let cat_select = `<select name="category-select" id="category-select" class="${mode}" multiple>`;
+        let cat_select = `<select name="category-select" id="category-select" class="${mode}" multiple=true size=5>`;
         for (let cat of all_cats)
           cat_select += `<option value="${cat}" ${cat === "All Categories" ? "selected=true" : ""}>${cat}</option>`;
-        cat_select += `</select> <button onclick="edit_working_queue()" class="${mode}">Apply</button>`;
+        cat_select += `</select>`
         document.getElementById("category-error").innerHTML = cat_select;
         edit_working_queue();
       }
@@ -596,6 +596,7 @@
       <p>
         <input type="text" name="abbreviation" id="abbreviation" class="light" size="30"/>
         <button onclick="get_queue()" class="light">Fetch Queue</button>
+        <button onclick="edit_working_queue()" class="${mode}">Apply</button>
       </p>
     </div>
     <div id="pre-table" style="text-align:center">
