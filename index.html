@@ -380,7 +380,7 @@
         }
         all_cats.sort((a, b) => ((a > b) - 0.5));
         all_cats.unshift("All Categories");
-        let cat_select = `<select name="category-select" id="category-select" class="${mode}" multiple=true size=5>`;
+        let cat_select = `<select name="category-select" id="category-select" class="${mode}" multiple=true size=10>`;
         for (let cat of all_cats)
           cat_select += `<option value="${cat}" ${cat === "All Categories" ? "selected=true" : ""}>${cat}</option>`;
         cat_select += `</select>`
@@ -589,7 +589,7 @@
     <div id="header" style="text-align:center">
       <span class="xlight light"><button class="link" onclick="dark()">Dark Mode</button></span>
       <span class="xdark light"><button class="link" onclick="light()">Light Mode</button></span> &bull;
-      <a href="https://github.com/randomidiot13/queueclient-web" target="_blank" class="external">GitHub</a>
+      <a href="https://github.com/tildejustin/queueclient" target="_blank" class="external">github</a>
     </div>
     <div id="prompt" style="text-align:center">
       <p>Enter the abbreviation for the game you wish to fetch the queue of:</p>
