@@ -166,7 +166,7 @@
                                                   "21go6e6q": [9, 15],
                                                   "4qye4731": [16, Infinity]}],
                         "wkpn0vdr": ["wlexoyr8", {"jqzywv2l": [0, 8], // Any%
-                                                  "81pjwxn1": [9, 13],
+                                                  "81pjwxn1": [9, Infinity],
                                                   "klr6djol": [14, Infinity]}],
                         "wk63eek1": ["0nw2y7xn", {"jqz6p0m1": [0, 6], // All Achievements
                                                   "klrzp521": [8, 11]}],
@@ -451,7 +451,11 @@
               working_queue.push(i);
             i++;
           }
-          title = `<b>${gameName}\n${selected}\n${working_queue.length} run${(working_queue.length != 1) ? "s" : ""}`;
+          abbr_cats = selected
+          if (abbr_cats.length > 4) {
+            abbr_cats = abbr_cats.slice(1, 4) + "..."
+          }
+          title = `<b>${gameName}\n${abbr_cats}\n${working_queue.length} run${(working_queue.length != 1) ? "s" : ""}`;
         }
         if (working_queue.length > 0) {
           let total = 0;
@@ -597,7 +601,7 @@
       <p>
         <input type="text" name="abbreviation" id="abbreviation" class="light" size="30"/>
         <button onclick="get_queue()" class="light">Fetch Queue</button>
-        <button onclick="edit_working_queue()" class="${mode}">Apply</button>
+        <button onclick="edit_working_queue()" class="${mode} light">Apply</button>
       </p>
     </div>
     <div id="pre-table" style="text-align:center">
