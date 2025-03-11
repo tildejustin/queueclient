@@ -380,7 +380,7 @@
         }
         all_cats.sort((a, b) => ((a > b) - 0.5));
         all_cats.unshift("All Categories");
-        let cat_select = `<select name="category-select" id="category-select" class="${mode}" multiple=true size=10>`;
+        let cat_select = `<select name="category-select" id="category-select" class="${mode}" multiple=true size=5>`;
         for (let cat of all_cats)
           cat_select += `<option value="${cat}" ${cat === "All Categories" ? "selected=true" : ""}>${cat}</option>`;
         cat_select += `</select>`
