@@ -52,8 +52,7 @@
       }
     </style>
     <script type="text/javascript">
-      mode = "dark";
-      dark();
+      mode = "";
 
       function light() {
         let elements = [];
@@ -76,6 +75,9 @@
         }
         mode = "dark";
       }
+
+      // make default mode dark (easier than changing html tags lol)
+      dark();
 
       const HEADER = "https://www.speedrun.com/api/v1/";
       
