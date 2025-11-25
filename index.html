@@ -15,9 +15,8 @@
       button.dark, input.dark, select.dark {
         background: #3b3b3b;
         color: #e6e6e6
-      }
-      button.dark, input.dark {
-        border-width: 1px
+        border: 1px solid;
+        border-radius: 3px;
       }
       .xlight.dark, .xdark.light {
         display: none
@@ -52,7 +51,7 @@
       }
     </style>
     <script type="text/javascript">
-      mode = "";
+      mode = "dark";
 
       function light() {
         let elements = [];
@@ -75,10 +74,6 @@
         }
         mode = "dark";
       }
-
-      // make default mode dark (easier than changing html tags lol)
-      dark();
-
       const HEADER = "https://www.speedrun.com/api/v1/";
       
       async function json_from_url_await(url) {
@@ -592,19 +587,19 @@
       }
     </script>
   </head>
-  <body style="font-family:sans-serif" class="light">
+  <body style="font-family:sans-serif" class="dark">
     <h1 style="text-align:center">QueueClient</h1>
     <div id="header" style="text-align:center">
-      <span class="xlight light"><button class="link" onclick="dark()">Dark Mode</button></span>
-      <span class="xdark light"><button class="link" onclick="light()">Light Mode</button></span> &bull;
+      <span class="xlight dark"><button class="link" onclick="dark()">Dark Mode</button></span>
+      <span class="xdark dark"><button class="link" onclick="light()">Light Mode</button></span> &bull;
       <a href="https://github.com/tildejustin/queueclient" target="_blank" class="external">Source</a>
     </div>
     <div id="prompt" style="text-align:center">
       <p>Enter the abbreviation for the game you wish to fetch the queue of:</p>
       <p>
-        <input type="text" name="abbreviation" id="abbreviation" class="light" size="30"/>
-        <button onclick="get_queue()" class="light">Fetch Queue</button>
-        <button onclick="edit_working_queue()" class="${mode} light">Apply</button>
+        <input type="text" name="abbreviation" id="abbreviation" class="dark" size="30"/>
+        <button onclick="get_queue()" class="dark">Fetch Queue</button>
+        <button onclick="edit_working_queue()" class="${mode} dark">Apply</button>
       </p>
     </div>
     <div id="pre-table" style="text-align:center">
